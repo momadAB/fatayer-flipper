@@ -13,7 +13,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Fatayer Clicker!",
+  title: "Fatayer Flipper!",
   description: "",
 };
 
