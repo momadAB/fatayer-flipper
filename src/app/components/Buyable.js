@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import nFormatter from "./nFormatter";
 
 function Buyable({
   buyablesObjects,
@@ -16,6 +17,9 @@ function Buyable({
   setFatayerMultiplier,
 }) {
   let { price, id, description, name } = buyable;
+
+  // The % that a purchases price will increase after each purchase
+  const logarithmicIncrease = 1.07;
 
   function implementBuyable(buyable) {
     if (cashCount >= buyable.price && !buyable.disabled) {
@@ -36,6 +40,7 @@ function Buyable({
           if (buyable.singleUpgrade) {
             buyable.disabled = true;
           }
+          buyable.price = (logarithmicIncrease * buyable.price).toFixed(2);
           buyable.count++;
           setBuyablesObjects(buyablesObjects);
         }
@@ -53,7 +58,7 @@ function Buyable({
   function multiplyBuyablePriceBy5AndIncreaseEfficacy() {
     buyablesObjects.forEach((buyable) => {
       if (buyable.id === id) {
-        buyable.price = buyable.price * 5;
+        buyable.price = (buyable.price * 5).toFixed(2);
         buyable.perClickIncrease += buyable.initialPerClickIncrease;
         buyable.passiveIncomeIncrease += buyable.initialPassiveIncomeIncrease;
         setBuyablesObjects(buyablesObjects);
@@ -76,7 +81,7 @@ function Buyable({
     <div className="mt-2">
       <p className="font-bold text-green-500">{name}</p>
       <p>{description}</p>
-      <p>Count: {buyable.count}</p>
+      <p>{buyable.count}</p>
       <button
         // Gives choice of golden upgrade at golden thresholds
         className={`text-black p-2 rounded-lg ${
@@ -92,7 +97,7 @@ function Buyable({
           }
         }}
       >
-        {isUpgradeDisabled() ? "SOLD OUT" : `$${buyable.price}`}
+        {isUpgradeDisabled() ? "SOLD OUT" : `${nFormatter(buyable.price)} KWD`}
       </button>
     </div>
   );

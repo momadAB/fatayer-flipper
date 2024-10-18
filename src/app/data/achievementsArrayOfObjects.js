@@ -5,7 +5,7 @@ const achievementsArrayOfObjects = [
     // Rewards
     priceAddition: 1,
     // Conditions
-    clickCount: 5,
+    clickCount: 50,
     // If achievement was claimed already
     wasClaimed: false,
     get description() {

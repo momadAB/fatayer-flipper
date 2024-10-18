@@ -43,8 +43,6 @@ function Achievement({
     return achievement.wasClaimed;
   }
 
-  console.log(wasAchievmentClaimed());
-
   return (
     <div className="mt-2">
       <p className="font-bold text-green-500">{name}</p>

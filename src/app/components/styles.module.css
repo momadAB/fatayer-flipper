@@ -21,6 +21,14 @@
   background-image: url("./assets/fatayertop.png");
 }
 
+.upgrades {
+  background-image: url("./assets/stonepattern.jpg");
+}
+
+.achievements {
+  background-image: url("./assets/stonepattern.jpg");
+}
+
 .container {
   display: flex;
   align-items: center;
