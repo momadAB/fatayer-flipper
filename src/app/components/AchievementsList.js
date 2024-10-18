@@ -1,7 +1,8 @@
 import React from "react";
 import Buyable from "./Buyable";
+import Achievement from "./Achievement";
 
-function BuyablesList({
+function AchievementsList({
   cashCount,
   setCashCount,
   setFatayerPrice,
@@ -14,17 +15,21 @@ function BuyablesList({
   setBuyablesObjects,
   fatayerMultiplier,
   setFatayerMultiplier,
+  achievementsObjects,
+  setAchievementsObjects,
+  clicksDone,
+  setClicksDone,
 }) {
   return (
     <div className="flex flex-col justify-center items-center p-3 text-center">
-      <h1 className="bg-black w-full">UPGRADES</h1>
-      {buyablesObjects.map((buyable) => {
+      <h1 className="bg-black w-full">ACHIEVEMENTS</h1>
+      {achievementsObjects.map((achievement) => {
         return (
-          <Buyable
-            key={buyable.id}
+          <Achievement
+            key={achievement.id}
             cashCount={cashCount}
             setCashCount={setCashCount}
-            buyable={buyable}
+            achievement={achievement}
             buyablesObjects={buyablesObjects}
             setBuyablesObjects={setBuyablesObjects}
             fatayerPerClick={fatayerPerClick}
@@ -35,6 +40,11 @@ function BuyablesList({
             setFatayerPrice={setFatayerPrice}
             fatayerMultiplier={fatayerMultiplier}
             setFatayerMultiplier={setFatayerMultiplier}
+            achievementsObjects={achievementsObjects}
+            setAchievementsObjects={setAchievementsObjects}
+            // Conditions
+            clicksDone={clicksDone}
+            setClicksDone={setClicksDone}
           />
         );
       })}
@@ -42,4 +52,4 @@ function BuyablesList({
   );
 }
 
-export default BuyablesList;
+export default AchievementsList;

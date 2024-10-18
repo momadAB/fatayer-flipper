@@ -98,7 +98,9 @@ const buyablesArrayOfObjects = [
     disabled: false,
     goldenThresholds: [],
     get description() {
-      return `Multiplies fatayer per click of buildings by 2`;
+      return `Multiplies fatayer per click of buildings by ${
+        this.fatayerMultiplier + 1
+      }`;
     },
   },
 
