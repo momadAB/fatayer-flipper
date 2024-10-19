@@ -115,9 +115,7 @@ function App() {
             <h1 className="ml-1">{getFormattedSymbolPart(fatayerPrice)} KWD</h1>
           </div>
           {/* Cash Count */}
-          {/* Have to wrap each piece of text in a div because whitespaces dont show and whitespace-prewrap breaks the number animation */}
           <div
-            // className={`text-right absolute top-8 text-8xl select-none flex flex-wrap ${getColorForSymbol(
             className={`absolute top-8 select-none ${getColorForSymbol(
               getFormattedSymbolPart(cashCount)
             )}`}
@@ -125,7 +123,6 @@ function App() {
             <div className="flex m-auto justify-center text-7xl">
               <AnimatedNumbers
                 includeComma
-                // className="text-blue-400"
                 animateToNumber={getFormattedNumberPart(cashCount)}
                 configs={[{ mass: 1, tension: 220, friction: 100 }]}
               />
