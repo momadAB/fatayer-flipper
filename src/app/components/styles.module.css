@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Agdasima";
+  src: url(../fonts/Agdasima-Regular.ttf);
+}
+
 .c {
   position: absolute;
   max-width: 500px;
