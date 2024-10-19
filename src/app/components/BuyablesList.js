@@ -1,43 +1,11 @@
 import React from "react";
-import Buyable from "./Buyable";
+import buyablesListHelperFunction from "../helpers/buyablesListHelperFunction";
 
-function BuyablesList({
-  cashCount,
-  setCashCount,
-  setFatayerPrice,
-  fatayerPerClick,
-  setFatayerPerClick,
-  fatayerPerSecond,
-  setFatayerPerSecond,
-  fatayerPrice,
-  buyablesObjects,
-  setBuyablesObjects,
-  fatayerMultiplier,
-  setFatayerMultiplier,
-}) {
+function BuyablesList(props) {
   return (
     <div className="flex flex-col justify-center items-center p-3 text-center">
       <h1 className="bg-black w-full">UPGRADES</h1>
-      {buyablesObjects.map((buyable) => {
-        return (
-          <Buyable
-            key={buyable.id}
-            cashCount={cashCount}
-            setCashCount={setCashCount}
-            buyable={buyable}
-            buyablesObjects={buyablesObjects}
-            setBuyablesObjects={setBuyablesObjects}
-            fatayerPerClick={fatayerPerClick}
-            setFatayerPerClick={setFatayerPerClick}
-            fatayerPerSecond={fatayerPerSecond}
-            setFatayerPerSecond={setFatayerPerSecond}
-            fatayerPrice={fatayerPrice}
-            setFatayerPrice={setFatayerPrice}
-            fatayerMultiplier={fatayerMultiplier}
-            setFatayerMultiplier={setFatayerMultiplier}
-          />
-        );
-      })}
+      {buyablesListHelperFunction(props)}
     </div>
   );
 }

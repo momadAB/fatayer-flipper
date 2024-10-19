@@ -74,6 +74,7 @@ function App() {
 
   return (
     <div className={`${agdasima.className} text-xl`}>
+      {/* Animated Background */}
       <Background />
       {/* Page */}
       <div className="m-auto h-svh grid grid-rows-2 grid-cols-4">
