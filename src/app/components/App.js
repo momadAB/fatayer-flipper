@@ -7,7 +7,9 @@ import buyablesArrayOfObjects from "../data/buyablesArrayOfObjects";
 import achievementsArrayOfObjects from "../data/achievementsArrayOfObjects";
 import Background from "./Background";
 
-import nFormatter from "./nFormatter";
+import getFormattedNumberPart from "../helpers/getFormattedNumberPart";
+import getFormattedSymbolPart from "../helpers/getFormattedSymbolPart";
+import getColorForSymbol from "../helpers/getColorForSymbol";
 
 import { Agdasima } from "next/font/google";
 
@@ -35,6 +37,7 @@ function App() {
   const [fatayerPerSecond, setFatayerPerSecond] = useState(0);
   const [fatayerMultiplier, setFatayerMultiplier] = useState(1); // Multiplies fatayer per click
 
+  // Imported data objects. They need a changeable format for price changes and conditions
   const [buyablesObjects, setBuyablesObjects] = useState(
     buyablesArrayOfObjects
   );
@@ -42,7 +45,6 @@ function App() {
     achievementsArrayOfObjects
   );
 
-  // Done by clicking fatayer manually
   function bakeFatayerByHand() {
     setFatayerCount(fatayerCount + fatayerPerClick * fatayerMultiplier);
     setCashCount(
@@ -51,7 +53,6 @@ function App() {
     setClicksDone(clicksDone + 1);
   }
 
-  // Passive fatayer gained per second
   function bakeFatayerPassively() {
     setFatayerCount(fatayerCount + fatayerPerSecond);
     setCashCount(cashCount + fatayerPrice * fatayerPerSecond);
@@ -67,41 +68,9 @@ function App() {
     return () => {
       clearInterval(interval);
     };
-  }, [bakeFatayerPassively]); // Must be dependent on bakeFatayerPassively,
+  }, [bakeFatayerPassively]);
+  // Must be dependent on bakeFatayerPassively,
   // otherwise the functions relied upon variables (fatayerPerSecond) will stay as their initial value inside bakeFatayerPassively
-
-  // Function to get the numeric part of the formatted number
-  function getFormattedNumberPart(num, digits = 3) {
-    console.log(num);
-    const formatted = nFormatter(num, digits);
-    return parseFloat(formatted).toFixed(3); // Extract numeric part
-  }
-
-  // Function to get the symbol part of the formatted number
-  function getFormattedSymbolPart(num, digits = 3) {
-    const formatted = nFormatter(num, digits);
-    return formatted.replace(parseFloat(formatted), ""); // Extract symbol part
-  }
-
-  // Function to determine the color based on the symbol
-  function getColorForSymbol(symbol) {
-    switch (symbol) {
-      case "k":
-        return "text-green-300";
-      case "M":
-        return "text-blue-300";
-      case "B":
-        return "text-purple-300";
-      case "T":
-        return "text-orange-300";
-      case "P":
-        return "text-yellow-300";
-      case "E":
-        return "text-red-400";
-      default:
-        return "text-white"; // Default color before reaching 1k KWD
-    }
-  }
 
   return (
     <div className={`${agdasima.className} text-xl`}>

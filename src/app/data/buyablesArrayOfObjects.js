@@ -1,4 +1,4 @@
-import nFormatter from "../components/nFormatter";
+import nFormatter from "../helpers/nFormatter";
 
 const buyablesArrayOfObjects = [
   {

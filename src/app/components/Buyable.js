@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import nFormatter from "./nFormatter";
+import nFormatter from "../helpers/nFormatter";
 
 function Buyable({
   buyablesObjects,
