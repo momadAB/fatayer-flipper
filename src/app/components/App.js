@@ -10,6 +10,12 @@ import Background from "./Background";
 import nFormatter from "./nFormatter";
 
 import styles from "./styles.module.css";
+import { Agdasima } from "next/font/google";
+
+const agdasima = Agdasima({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+});
 
 import dynamic from "next/dynamic";
 const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
@@ -63,6 +69,7 @@ function App() {
 
   // Function to get the numeric part of the formatted number
   function getFormattedNumberPart(num, digits = 3) {
+    console.log(num);
     const formatted = nFormatter(num, digits);
     return parseFloat(formatted).toFixed(3); // Extract numeric part
   }
@@ -80,12 +87,12 @@ function App() {
         return "text-green-300";
       case "M":
         return "text-blue-300";
-      case "G":
+      case "B":
         return "text-purple-300";
       case "T":
         return "text-orange-300";
       case "P":
-        return "text-red-300";
+        return "text-yellow-300";
       case "E":
         return "text-red-400";
       default:
@@ -94,21 +101,22 @@ function App() {
   }
 
   return (
-    <>
+    <div className={`${agdasima.className} text-xl`}>
       <Background />
       {/* Page */}
       <div className="m-auto h-svh grid grid-rows-2 grid-cols-4">
         {/* Clicker section */}
         <div className="h-full w-full row-span-2 col-span-3 flex flex-wrap-reverse justify-center items-center relative">
-          {/* Button wrapper */}
+          {/* Clickable Fatayer */}
           <Fatayer
             fatayerCount={fatayerCount}
             fatayerPerClick={fatayerPerClick}
             cashCount={cashCount}
             bakeFatayer={bakeFatayerByHand}
           />
+          {/* Stats section */}
           <div className="text-left absolute top-0 left-0 select-none flex">
-            <h1 className="mr-1">{"FATAYERS BAKED: "}</h1>
+            <h1 className="mr-1">{`FATAYERS BAKED: `}</h1>
             <AnimatedNumbers
               includeComma
               animateToNumber={fatayerCount}
@@ -125,15 +133,6 @@ function App() {
             />
           </div>
 
-          <div className="text-left absolute top-28 select-none flex">
-            <h1 className="mr-1">{"FATAYER PER SECOND: "}</h1>
-            <AnimatedNumbers
-              includeComma
-              animateToNumber={fatayerPerSecond}
-              configs={[{ mass: 1, tension: 220, friction: 100 }]}
-            />
-          </div>
-
           <div className="text-left absolute top-8 left-0 select-none flex">
             <h1 className="mr-1">{"FATAYER PRICE: "}</h1>
             <AnimatedNumbers
@@ -146,20 +145,31 @@ function App() {
           {/* Cash Count */}
           {/* Have to wrap each piece of text in a div because whitespaces dont show and whitespace-prewrap breaks the number animation */}
           <div
-            className={`text-right absolute top-8 text-6xl select-none flex flex-nowrap ${getColorForSymbol(
+            // className={`text-right absolute top-8 text-8xl select-none flex flex-wrap ${getColorForSymbol(
+            className={`absolute top-8 select-none ${getColorForSymbol(
               getFormattedSymbolPart(cashCount)
             )}`}
           >
-            <h1 className="flex">
+            <div className="flex m-auto justify-center text-7xl">
+              {/* <p>$</p> */}
               <AnimatedNumbers
                 includeComma
                 // className="text-blue-400"
                 animateToNumber={getFormattedNumberPart(cashCount)}
                 configs={[{ mass: 1, tension: 220, friction: 100 }]}
               />
-              {getFormattedSymbolPart(cashCount)}
-            </h1>
-            <h1 className="ml-4">Dinar</h1>
+              <h1>{getFormattedSymbolPart(cashCount)}</h1>
+              <h2 className="ml-3">KWD</h2>
+            </div>
+
+            <div className="text-center select-none flex text-xl m-auto basis-full justify-center">
+              <h1 className="mr-1">{"FATAYER PER SECOND: "}</h1>
+              <AnimatedNumbers
+                includeComma
+                animateToNumber={fatayerPerSecond}
+                configs={[{ mass: 1, tension: 220, friction: 100 }]}
+              />
+            </div>
           </div>
           {/* Credits */}
           <h1 className="absolute select-none bottom-0">
@@ -212,7 +222,7 @@ function App() {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

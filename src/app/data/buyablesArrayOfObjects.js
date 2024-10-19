@@ -1,3 +1,5 @@
+import nFormatter from "../components/nFormatter";
+
 const buyablesArrayOfObjects = [
   {
     price: 5,
@@ -203,7 +205,97 @@ const buyablesArrayOfObjects = [
     upgradedMultiplier: 100,
     goldenThresholds: [10, 25, 100, 1000],
     get description() {
-      return `Magically creates ${this.passiveIncomeIncrease} fatayer per second`;
+      return `Magically creates ${nFormatter(
+        this.passiveIncomeIncrease
+      )} fatayer per second`;
+    },
+  },
+  {
+    price: 38000000,
+    id: 8,
+    name: "Fatayermancer",
+    passiveIncomeIncrease: 44000,
+    initialPassiveIncomeIncrease: 44000,
+    perClickIncrease: 0,
+    initialPerClickIncrease: 0,
+    count: 0,
+    multiplier: 1,
+    fatayerMultiplier: 0,
+    singleUpgrade: false,
+    disabled: false,
+    upgradePrice: 50000,
+    upgradedMultiplier: 100,
+    goldenThresholds: [10, 25, 100, 1000],
+    get description() {
+      return `Resurrects ${nFormatter(
+        this.passiveIncomeIncrease
+      )} fatayer per second`;
+    },
+  },
+  {
+    price: 500000000,
+    id: 8,
+    name: "Abdullah",
+    passiveIncomeIncrease: 220000,
+    initialPassiveIncomeIncrease: 220000,
+    perClickIncrease: 0,
+    initialPerClickIncrease: 0,
+    count: 0,
+    multiplier: 1,
+    fatayerMultiplier: 0,
+    singleUpgrade: false,
+    disabled: false,
+    upgradePrice: 50000,
+    upgradedMultiplier: 100,
+    goldenThresholds: [10, 25, 100, 1000],
+    get description() {
+      return `(Ex) Owner of the greatest fatayer place in town. Makes ${nFormatter(
+        this.passiveIncomeIncrease
+      )} fatayer per second`;
+    },
+  },
+  {
+    price: 5000000000,
+    id: 8,
+    name: "Automated Factory",
+    passiveIncomeIncrease: 1000000,
+    initialPassiveIncomeIncrease: 1000000,
+    perClickIncrease: 0,
+    initialPerClickIncrease: 0,
+    count: 0,
+    multiplier: 1,
+    fatayerMultiplier: 0,
+    singleUpgrade: false,
+    disabled: false,
+    upgradePrice: 50000,
+    upgradedMultiplier: 100,
+    goldenThresholds: [10, 25, 100, 1000],
+    get description() {
+      return `Makes ${nFormatter(
+        this.passiveIncomeIncrease
+      )} fatayer per second`;
+    },
+  },
+  {
+    price: 100000000000,
+    id: 8,
+    name: "Moon Colony",
+    passiveIncomeIncrease: 5000000,
+    initialPassiveIncomeIncrease: 5000000,
+    perClickIncrease: 0,
+    initialPerClickIncrease: 0,
+    count: 0,
+    multiplier: 1,
+    fatayerMultiplier: 0,
+    singleUpgrade: false,
+    disabled: false,
+    upgradePrice: 50000,
+    upgradedMultiplier: 100,
+    goldenThresholds: [10, 25, 100, 1000],
+    get description() {
+      return `Makes ${nFormatter(
+        this.passiveIncomeIncrease
+      )} fatayer per second`;
     },
   },
 ];
