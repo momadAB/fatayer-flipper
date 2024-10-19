@@ -212,7 +212,7 @@ const buyablesArrayOfObjects = [
   },
   {
     price: 38000000,
-    id: 8,
+    id: 9,
     name: "Fatayermancer",
     passiveIncomeIncrease: 44000,
     initialPassiveIncomeIncrease: 44000,
@@ -234,7 +234,7 @@ const buyablesArrayOfObjects = [
   },
   {
     price: 500000000,
-    id: 8,
+    id: 10,
     name: "Abdullah",
     passiveIncomeIncrease: 220000,
     initialPassiveIncomeIncrease: 220000,
@@ -256,7 +256,7 @@ const buyablesArrayOfObjects = [
   },
   {
     price: 5000000000,
-    id: 8,
+    id: 11,
     name: "Automated Factory",
     passiveIncomeIncrease: 1000000,
     initialPassiveIncomeIncrease: 1000000,
@@ -278,7 +278,7 @@ const buyablesArrayOfObjects = [
   },
   {
     price: 100000000000,
-    id: 8,
+    id: 12,
     name: "Moon Colony",
     passiveIncomeIncrease: 5000000,
     initialPassiveIncomeIncrease: 5000000,
