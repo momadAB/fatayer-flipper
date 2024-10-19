@@ -20,10 +20,13 @@ const agdasima = Agdasima({
 });
 
 // Importing react-animated-numbers package for use
-import dynamic from "next/dynamic";
-const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
-  ssr: false,
-});
+// import dynamic from "next/dynamic";
+// const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
+//   ssr: false,
+// });
+
+import AnimatedNumber from "react-awesome-animated-number";
+import "react-awesome-animated-number/dist/index.css";
 
 function App() {
   // Statistics and conditions
@@ -88,29 +91,36 @@ function App() {
             bakeFatayer={bakeFatayerByHand}
           />
           {/* Stats section */}
-          <div className="text-left absolute top-0 left-0 select-none flex">
+          <div className="text-left absolute top-0 left-0 select-none flex items-center">
             <h1 className="mr-1">{`FATAYERS BAKED: `}</h1>
-            <AnimatedNumbers
-              includeComma
-              animateToNumber={fatayerCount}
+            <AnimatedNumber
+              // includeComma
+              hasComma={true}
+              // animateToNumber={fatayerCount}
+              value={fatayerCount}
+              size={20}
               configs={[{ mass: 1, tension: 220, friction: 100 }]}
             />
           </div>
 
-          <div className="text-left absolute top-4 left-0 select-none flex">
+          <div className="text-left absolute top-4 left-0 select-none flex items-center">
             <h1 className="mr-1">{"FATAYER PER CLICK: "}</h1>
-            <AnimatedNumbers
-              includeComma
-              animateToNumber={fatayerPerClick * fatayerMultiplier}
+            <AnimatedNumber
+              // includeComma
+              hasComma={true}
+              size={20}
+              value={fatayerPerClick * fatayerMultiplier}
               configs={[{ mass: 1, tension: 220, friction: 100 }]}
             />
           </div>
 
-          <div className="text-left absolute top-8 left-0 select-none flex">
+          <div className="text-left absolute top-8 left-0 select-none flex items-center ">
             <h1 className="mr-1">{"FATAYER PRICE: "}</h1>
-            <AnimatedNumbers
-              includeComma
-              animateToNumber={getFormattedNumberPart(fatayerPrice)}
+            <AnimatedNumber
+              // includeComma
+              hasComma={true}
+              size={20}
+              value={getFormattedNumberPart(fatayerPrice)}
               configs={[{ mass: 1, tension: 220, friction: 100 }]}
             />
             <h1 className="ml-1">{getFormattedSymbolPart(fatayerPrice)} KWD</h1>
@@ -121,21 +131,25 @@ function App() {
               getFormattedSymbolPart(cashCount)
             )}`}
           >
-            <div className="flex m-auto justify-center text-7xl">
-              <AnimatedNumbers
-                includeComma
-                animateToNumber={getFormattedNumberPart(cashCount)}
+            <div className="flex m-auto justify-center text-7xl items-center">
+              <AnimatedNumber
+                // includeComma
+                hasComma={true}
+                size={72}
+                value={getFormattedNumberPart(cashCount)}
                 configs={[{ mass: 1, tension: 220, friction: 100 }]}
               />
               <h1>{getFormattedSymbolPart(cashCount)}</h1>
               <h2 className="ml-3">KWD</h2>
             </div>
 
-            <div className="text-center select-none flex text-xl m-auto basis-full justify-center">
+            <div className="text-center select-none flex text-xl m-auto basis-full justify-center items-center">
               <h1 className="mr-1">{"FATAYER PER SECOND: "}</h1>
-              <AnimatedNumbers
-                includeComma
-                animateToNumber={fatayerPerSecond}
+              <AnimatedNumber
+                // includeComma
+                hasComma={true}
+                value={fatayerPerSecond}
+                size={20}
                 configs={[{ mass: 1, tension: 220, friction: 100 }]}
               />
             </div>
