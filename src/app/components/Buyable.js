@@ -22,18 +22,16 @@ function Buyable({
   const logarithmicIncrease = 1.07;
 
   function implementBuyable(buyable) {
+    // If able to buy
     if (cashCount >= buyable.price && !buyable.disabled) {
+      // Decrease price
       setCashCount(cashCount - buyable.price);
-      //TODO: Implement passive income
-      // Increase fatayer multiplier
+      // Apply all benefits of the upgrade (if they exist)
       setFatayerMultiplier(fatayerMultiplier + buyable.fatayerMultiplier);
-      // Per click
       setFatayerPerClick(fatayerPerClick + buyable.perClickIncrease);
-      // Price increase
       setFatayerPrice(fatayerPrice, buyable.priceIncrease);
-      // Passive increase
       setFatayerPerSecond(fatayerPerSecond + buyable.passiveIncomeIncrease);
-      // Increment count in buyable objects list
+      // Increment count and price in buyable objects list
       buyablesObjects.forEach((buyable) => {
         if (buyable.id === id) {
           // Disables upgrade if is singleUpgrade
@@ -54,7 +52,7 @@ function Buyable({
     }
   }
 
-  // Used after golden upgrades
+  // Used on golden upgrades
   function multiplyBuyablePriceBy5AndIncreaseEfficacy() {
     buyablesObjects.forEach((buyable) => {
       if (buyable.id === id) {
@@ -66,7 +64,6 @@ function Buyable({
     });
   }
 
-  // Check if the upgrade is disabled
   function isUpgradeDisabled() {
     let isDisabled = false;
     buyablesObjects.forEach((buyable) => {
@@ -83,7 +80,7 @@ function Buyable({
       <p>{description}</p>
       <p>{buyable.count}</p>
       <button
-        // Gives choice of golden upgrade at golden thresholds
+        // Gives golden upgrade at golden thresholds
         className={`text-black p-2 rounded-lg ${
           buyable.goldenThresholds.includes(buyable.count)
             ? "bg-yellow-500"

@@ -9,14 +9,15 @@ import Background from "./Background";
 
 import nFormatter from "./nFormatter";
 
-import styles from "./styles.module.css";
 import { Agdasima } from "next/font/google";
 
+// Import font
 const agdasima = Agdasima({
   weight: ["400", "700"],
   subsets: ["latin"],
 });
 
+// Importing react-animated-numbers package for use
 import dynamic from "next/dynamic";
 const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
   ssr: false,
@@ -96,7 +97,7 @@ function App() {
       case "E":
         return "text-red-400";
       default:
-        return "text-white"; // Default color for no symbol or other cases
+        return "text-white"; // Default color before reaching 1k KWD
     }
   }
 
@@ -151,7 +152,6 @@ function App() {
             )}`}
           >
             <div className="flex m-auto justify-center text-7xl">
-              {/* <p>$</p> */}
               <AnimatedNumbers
                 includeComma
                 // className="text-blue-400"
@@ -177,7 +177,11 @@ function App() {
           </h1>
         </div>
 
-        {/* Upgrades: increase fatayer price */}
+        {/* 
+          As a heads up, many of the properties being passed down here are unnecessary 
+          I only passed them down for if I want to add more features later
+        */}
+        {/* Upgrades section */}
         <div
           className={`bg-gradient-to-r from-gray-950 to-gray-900 h-full w-full flex flex-col overflow-scroll border-4 border-fuchsia-700 opacity-80`}
         >
@@ -196,8 +200,7 @@ function App() {
             setFatayerMultiplier={setFatayerMultiplier}
           />
         </div>
-        {/* Buildings: increase fatayer per click (clickBuilding)
-                    or increase passive fatayer per second (passiveBuilding)*/}
+        {/* Achievements section */}
         <div
           className={`bg-gradient-to-r from-gray-950 to-gray-900 h-full w-full flex flex-col overflow-scroll border-4 border-fuchsia-700 opacity-80`}
         >

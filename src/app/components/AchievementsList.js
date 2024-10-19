@@ -42,7 +42,7 @@ function AchievementsList({
             setFatayerMultiplier={setFatayerMultiplier}
             achievementsObjects={achievementsObjects}
             setAchievementsObjects={setAchievementsObjects}
-            // Conditions
+            // Conditions for achievements
             clicksDone={clicksDone}
             setClicksDone={setClicksDone}
           />

@@ -3,7 +3,7 @@ import { useSpring, a } from "@react-spring/web";
 import { useState } from "react";
 import styles from "./styles.module.css";
 
-function Fatayer({ fatayerCount, fatayerPerClick, cashCount, bakeFatayer }) {
+function Fatayer({ bakeFatayer }) {
   const [flipped, set] = useState(false);
   const { transform, opacity } = useSpring({
     opacity: flipped ? 1 : 1,
@@ -11,6 +11,7 @@ function Fatayer({ fatayerCount, fatayerPerClick, cashCount, bakeFatayer }) {
     config: { mass: 15, tension: 800, friction: 80 },
   });
 
+  // Nearly all this code is for CSS effects on the clickable fatayer
   return (
     <div className="scale-150 hover:scale-[2.0] transition-all">
       <span
@@ -20,15 +21,6 @@ function Fatayer({ fatayerCount, fatayerPerClick, cashCount, bakeFatayer }) {
           bakeFatayer();
         }}
       >
-        {/* <div>
-        <button
-          className="bg-slate-600 w-full h-36 col-span-2"
-          onClick={bakeFatayer}
-        >
-          BAKE
-        </button>
-      </div> */}
-
         <div className={styles.container}>
           <a.div
             className={`${styles.c} ${styles.back}`}
