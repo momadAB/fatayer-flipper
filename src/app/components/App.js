@@ -24,21 +24,23 @@ const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
 });
 
 function App() {
+  // Statistics and conditions
   const [fatayerCount, setFatayerCount] = useState(0);
   const [cashCount, setCashCount] = useState(0);
   const [fatayerPrice, setFatayerPrice] = useState(1);
+  const [clicksDone, setClicksDone] = useState(0);
+
+  // Player ability statistics
   const [fatayerPerClick, setFatayerPerClick] = useState(1);
   const [fatayerPerSecond, setFatayerPerSecond] = useState(0);
+  const [fatayerMultiplier, setFatayerMultiplier] = useState(1); // Multiplies fatayer per click
+
   const [buyablesObjects, setBuyablesObjects] = useState(
     buyablesArrayOfObjects
   );
   const [achievementsObjects, setAchievementsObjects] = useState(
     achievementsArrayOfObjects
   );
-  const [fatayerMultiplier, setFatayerMultiplier] = useState(1); // Multiplies fatayer per click
-
-  // Conditions
-  const [clicksDone, setClicksDone] = useState(0);
 
   // Done by clicking fatayer manually
   function bakeFatayerByHand() {
