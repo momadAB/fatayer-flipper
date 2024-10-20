@@ -19,6 +19,7 @@ function achievementsListHelperFunction(props) {
     setAchievementsObjects,
     clicksDone,
     setClicksDone,
+    fatayerCount,
   } = props;
 
   return achievementsObjects.map((achievement) => {
@@ -40,6 +41,7 @@ function achievementsListHelperFunction(props) {
         setFatayerMultiplier={setFatayerMultiplier}
         achievementsObjects={achievementsObjects}
         setAchievementsObjects={setAchievementsObjects}
+        fatayerCount={fatayerCount}
         // Conditions for achievements
         clicksDone={clicksDone}
         setClicksDone={setClicksDone}

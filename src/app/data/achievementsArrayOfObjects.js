@@ -1,11 +1,26 @@
 const achievementsArrayOfObjects = [
   {
+    id: 5,
+    name: "YouAreFat",
+    // Rewards
+    priceAddition: 1,
+    // Conditions
+    clickCount: 0,
+    fatayerCountCondition: 20,
+    // If achievement was claimed already
+    wasClaimed: false,
+    get description() {
+      return `Make ${this.fatayerCountCondition} fatayer. Increase fatayer price`;
+    },
+  },
+  {
     id: 1,
     name: "Baby Steps",
     // Rewards
     priceAddition: 1,
     // Conditions
     clickCount: 50,
+    fatayerCountCondition: 0,
     // If achievement was claimed already
     wasClaimed: false,
     get description() {
@@ -19,6 +34,7 @@ const achievementsArrayOfObjects = [
     priceAddition: 1,
     // Conditions
     clickCount: 100,
+    fatayerCountCondition: 0,
     // If achievement was claimed already
     wasClaimed: false,
     get description() {
@@ -32,6 +48,7 @@ const achievementsArrayOfObjects = [
     priceAddition: 1,
     // Conditions
     clickCount: 1000,
+    fatayerCountCondition: 0,
     // If achievement was claimed already
     wasClaimed: false,
     get description() {
@@ -45,6 +62,7 @@ const achievementsArrayOfObjects = [
     priceAddition: 1,
     // Conditions
     clickCount: 5000,
+    fatayerCountCondition: 0,
     // If achievement was claimed already
     wasClaimed: false,
     get description() {
