@@ -202,6 +202,7 @@ function App() {
             setFatayerMultiplier={setFatayerMultiplier}
             achievementsObjects={achievementsObjects}
             setAchievementsObjects={setAchievementsObjects}
+            fatayerCount={fatayerCount}
             // Conditions
             clicksDone={clicksDone}
             setClicksDone={setClicksDone}

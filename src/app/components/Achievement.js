@@ -14,15 +14,28 @@ function Achievement({
   setFatayerPrice,
   fatayerMultiplier,
   setFatayerMultiplier,
+  fatayerCount,
   // Conditions
   clicksDone,
   setClicksDone,
 }) {
-  let { name, description, id, priceAddition, clickCount } = achievement;
+  let {
+    name,
+    description,
+    id,
+    priceAddition,
+    clickCount,
+    fatayerCountCondition,
+  } = achievement;
 
   // Returns true if achievement conditions are fulfilled
   function checkAchievementConditions() {
-    if (!wasAchievmentClaimed() && clicksDone >= clickCount) return true;
+    if (
+      !wasAchievmentClaimed() &&
+      clicksDone >= clickCount &&
+      fatayerCount >= fatayerCountCondition
+    )
+      return true;
     return false;
   }
 
